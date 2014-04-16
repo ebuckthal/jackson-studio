@@ -1,0 +1,26 @@
+* {
+   margin: 0;
+   padding: 0;
+}
+
+#grid-container {
+   width: 100%;
+   height: auto;
+}
+
+.tile {
+   position: absolute;
+   height: 200px;
+   width: 200px;
+   z-index: 0;
+}
+
+.tile:hover {
+   z-index: 10;
+
+}
+
+.tile#sam {
+
+
+}
