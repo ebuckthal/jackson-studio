@@ -13,14 +13,38 @@
    height: 200px;
    width: 200px;
    z-index: 0;
+
+   background-size: cover;
+   background-repeat: no-repeat;
+
+   cursor: move;
+
+   transition: height 0.3s ease-in-out, width 0.3s ease-in-out; 
 }
 
-.tile:hover {
-   z-index: 10;
+.tile i {
+   position: absolute;
+   left: 0;
+}
 
+.tile i:hover {
+   cursor: pointer;
+}
+
+.tile.expanded {
+   height: 500px;
+   width: 500px;
+}
+
+.invisible {
+   display: none;
 }
 
 .tile#sam {
+   background-image: url('/assets/img/Thesis/Lawerence_01.jpg');
+}
 
-
+.tile.expanded#sam {
+   height: 500px;
+   width: 1000px;
 }
