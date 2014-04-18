@@ -41,7 +41,7 @@
 }
 
 .tile#sam {
-   background-image: url('/assets/img/Thesis/Lawerence_01.jpg');
+   background-image: url('../assets/img/Thesis/Lawerence_01.jpg');
 }
 
 .tile.expanded#sam {
