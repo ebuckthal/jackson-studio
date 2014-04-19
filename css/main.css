@@ -22,13 +22,13 @@
 }
 
 
-#sam {
+#lawerence {
    background-image: url('../assets/img/Thesis/Lawerence_01.jpg');
 }
 
-.expanded#sam {
+.expanded#lawerence {
    height: 500px;
-   width: 1000px;
+   width: 1000px; 
 }
 
 .tile i {
