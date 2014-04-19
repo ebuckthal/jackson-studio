@@ -182,6 +182,11 @@
    width: 1000px; 
 }
 
+.expanded#laura {
+   height: 500px;
+   width: 600px; 
+}
+
 .tile i {
    visibility: hidden;
    text-align: center;
