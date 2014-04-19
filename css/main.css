@@ -19,32 +19,91 @@
 
    cursor: move;
 
-   transition: height 0.3s ease-in-out, width 0.3s ease-in-out; 
+}
+
+
+#sam {
+   background-image: url('../assets/img/Thesis/Lawerence_01.jpg');
+}
+
+.expanded#sam {
+   height: 500px;
+   width: 1000px;
 }
 
 .tile i {
-   position: absolute;
-   left: 0;
+   visibility: hidden;
+   text-align: center;
+   color: rgba(255,255,255,0.7);
+   width: 200px;
+   line-height: 200px;
+   font-size: 500%;
+   margin: 0 auto;
 }
 
-.tile i:hover {
-   cursor: pointer;
+.tile:hover i {
+   visibility: visible;
 }
 
-.tile.expanded {
+.audio:hover i.fa-volume-down {
+   visibility: visible;
+}
+
+.audio:hover i.fa-volume-up {
+   visibility: hidden;
+   display: none;
+}
+
+.audio.playing:hover i.fa-volume-up {
+   visibility: visible;
+   display: inline-block;
+}
+
+.audio.playing:hover i.fa-volume-down {
+   visibility: hidden;
+   display: none;
+}
+
+.expand {
+   transition: height 0.3s ease-in-out, width 0.3s ease-in-out; 
+}
+
+.expand.expanded i {
+   visibility: hidden;
+   display: none;
+}
+
+.expand.expanded {
    height: 500px;
    width: 500px;
 }
 
-.invisible {
+.yt.playing i {
+   visibility: hidden;
    display: none;
 }
 
-.tile#sam {
-   background-image: url('../assets/img/Thesis/Lawerence_01.jpg');
+.yt {
+   transition: height 0.3s ease-in-out, width 0.3s ease-in-out;
 }
 
-.tile.expanded#sam {
-   height: 500px;
-   width: 1000px;
+.yt.playing {
+   height: 390px;
+   width: 640px;
+}
+
+
+/*MAGIC YOUTUBE OVERLAY DO NOT TOUCH*/
+.ytplayer {
+   z-index: -100;
+}
+
+
+.overlay {
+   height: 390px;
+   width: 640px;
+   z-index: 100;
+   position: absolute;
+   top: 0px;
+   left: 0px;
 }
