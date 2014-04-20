@@ -45,16 +45,12 @@ $('.audio').on('click', function() {
 
    if(!$(this).hasClass('playing')) {
       $(this).find('audio')[0].pause();
-      $(this).find('audio').remove();
       return;
    }
 
-   $(this).append('<audio preload src="' + $(this).data('mp3') + '"></audio>');
+   $(this).find('audio')[0].play();
 
    $(this).find('audio')
-      .on('canplay', function() {
-         this.play();
-      })
       .on('ended', function() {
          $(this).parent().trigger('click');
       })
@@ -75,10 +71,12 @@ $('.video').on('click', function() {
       return;
    }
 
-   $(this).find('video')[0].currentTime = 0;
-   console.log($(this).find('video')[0].currentTime);
-
    $(this).find('video')[0].play();
+   
+   $(this).find('video')
+      .on('ended', function() {
+         $(this).parent().trigger('click');
+      })
 })
 
 $('.yt').append('<i class="fa fa-play-circle"></i>');
