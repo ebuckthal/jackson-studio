@@ -66,6 +66,21 @@ $('.expand').on('click', function() {
    $(this).toggleClass('expanded');
 });
 
+$('.video').append('<i class="fa fa-play-circle"></i><i class="fa fa-pause"></i>');
+$('.video').on('click', function() {
+   $(this).toggleClass('playing');
+
+   if(!$(this).hasClass('playing')) {
+      $(this).find('video')[0].pause();
+      return;
+   }
+
+   $(this).find('video')[0].currentTime = 0;
+   console.log($(this).find('video')[0].currentTime);
+
+   $(this).find('video')[0].play();
+})
+
 $('.yt').append('<i class="fa fa-play-circle"></i>');
 
 $('.yt').on('click', function() {
