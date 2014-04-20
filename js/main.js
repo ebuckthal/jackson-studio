@@ -1,25 +1,21 @@
 var tiles = $(".tile")
+tiles
+   .draggable()
+   .on('mouseenter', function() {
+      if($(".ui-draggable-dragging").length > 0) {
+         return;
+      }
 
-//$('.tile').append('<i class="fa fa-plus-square invisible expand"></i><i class="fa fa-minus-square invisible contract"></i>');
+      $('.tile').removeClass("active");
+      $(this).addClass('active');
 
-$(".tile").draggable();
+      this.style.zIndex = tiles.length;
 
-$(".tile").on('mouseenter', function() {
+      $.each(tiles, function(k,v) {
+         v.style.zIndex--;
+      });
 
-   if($(".ui-draggable-dragging").length > 0) {
-      return;
-   }
-
-   $('.tile').removeClass("active");
-   $(this).addClass('active');
-
-   this.style.zIndex = tiles.length;
-
-   $.each(tiles, function(k,v) {
-      v.style.zIndex--;
-   });
-
-})
+   })
 
 
 for(var i = 0, tile, nextTop = 0, nextLeft = 0; tile = tiles[i++]; ) {
@@ -38,6 +34,10 @@ for(var i = 0, tile, nextTop = 0, nextLeft = 0; tile = tiles[i++]; ) {
    tile.style.backgroundColor = 'rgb(' + i*20 + ',0,0)';
 }
 
+$('.info').on('click', function() {
+   $(this).toggleClass('expanded');
+});
+
 $('.audio').append('<i class="fa fa-volume-up"></i><i class="fa fa-volume-down"></i>');
 $('.audio').on('click', function() {
 
@@ -51,10 +51,13 @@ $('.audio').on('click', function() {
 
    $(this).append('<audio preload src="' + $(this).data('mp3') + '"></audio>');
 
-   $(this).find('audio').on('canplay', function() {
-
-      this.play();
-   })
+   $(this).find('audio')
+      .on('canplay', function() {
+         this.play();
+      })
+      .on('ended', function() {
+         $(this).parent().trigger('click');
+      })
 
 });
 

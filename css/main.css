@@ -17,7 +17,7 @@
    background-size: cover;
    background-repeat: no-repeat;
 
-   cursor: move;
+   cursor: pointer;
 
 }
 
@@ -45,6 +45,49 @@
    visibility: visible;
 }
 
+.info {
+   transition: height 1s, width 1s, color 1s;
+   overflow: hidden;
+}
+
+.info h1 {
+   text-align: center;
+   width: 200px;
+   line-height: 200px;
+}
+
+.info * {
+   visibility: hidden;
+   color: rgba(255,255,255,0.7);
+   transition: width 1s, color 1s;
+}
+
+.info p {
+   color: rgba(255,255,255,0);
+   padding: 10px 20px;
+   margin-left: -100px;
+   transition: margin-left 1s, color 1s;
+}
+
+.info:hover h1 {
+   visibility: visible;
+}
+
+.info.expanded {
+   height: 500px;
+   width: 300px;
+}
+
+.info.expanded * {
+   visibility: visible;
+   width: 300px;
+   color: rgba(255,255,255,1);
+}
+
+.info.expanded p {
+   margin-left: 0;
+}
+
 .audio:hover i.fa-volume-down {
    visibility: visible;
 }
@@ -65,7 +108,7 @@
 }
 
 .expand {
-   transition: height 0.3s ease-in-out, width 0.3s ease-in-out; 
+   transition: height 1s, width 1s; 
 }
 
 .expand.expanded i {
@@ -84,7 +127,7 @@
 }
 
 .yt {
-   transition: height 0.3s ease-in-out, width 0.3s ease-in-out;
+   transition: height 1s, width 1s;
 }
 
 .yt.playing {
