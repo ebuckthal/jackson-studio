@@ -277,10 +277,6 @@
    transition: margin-left 1s, color 1s;
 }
 
-.info:hover h1 {
-   visibility: visible;
-}
-
 .info.expanded {
    height: 500px;
    width: 300px;
