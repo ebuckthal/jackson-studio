@@ -18,6 +18,7 @@ tiles
    })
 
 
+
 for(var i = 0, tile, nextTop = 0, nextLeft = 0; tile = tiles[i++]; ) {
 
    tile.style.top = nextTop + 'px';
@@ -31,14 +32,14 @@ for(var i = 0, tile, nextTop = 0, nextLeft = 0; tile = tiles[i++]; ) {
       nextTop += 210;
    }
 
-   tile.style.backgroundColor = 'rgb(' + i*20 + ',0,0)';
+   //tile.style.backgroundColor = 'rgb(' + i*20 + ',0,0)';
 }
 
 $('.info').on('click', function() {
    $(this).toggleClass('expanded');
 });
 
-$('.audio').append('<i class="fa fa-volume-up"></i><i class="fa fa-volume-down"></i>');
+$('.audio').append('<i class="fa fa-volume-up cover"></i><i class="fa fa-volume-down cover"></i>');
 $('.audio').on('click', function() {
 
    $(this).toggleClass('playing');
@@ -57,19 +58,52 @@ $('.audio').on('click', function() {
 
 });
 
-$('.expand').append('<i class="fa fa-plus-circle"></i>');
+$('.cycle-image')
+   .append('<i class="fa fa-chevron-circle-left"></i>')
+   .append('<i class="fa fa-chevron-circle-right"></i>');
+
+$('.expand').append('<i class="fa fa-plus-circle cover"></i>');
 $('.expand').on('click', function() {
+   
+   var nImg = $(this).find('.cycle-image').find('img').length;
+   this.i = ((this.i+1) % nImg) || 0;
+
+   $(this).find('.cycle-image').data('length', nImg);
+
    $(this).toggleClass('expanded');
+
+   $(this).find('.fa').on('click', function(e) {
+      e.stopPropagation();
+
+      var length = $(this).parent().data('length');
+      var i = $(this).parent().data('i') || 0;
+
+      i = (i+1) % length;
+
+      $(this).parent().data('i', i);
+
+      $(this).parent().find('.this').removeClass('this');
+      $(this).parent().find('img:eq(' + i + ')').addClass('this');
+
+   })
+
 });
 
-$('.video').append('<i class="fa fa-play-circle"></i><i class="fa fa-pause"></i>');
+$('.video').addClass('before');
+$('.video').append('<i class="fa fa-play-circle cover"></i><i class="fa fa-pause cover"></i>');
 $('.video').on('click', function() {
+
+   $(this).removeClass('before');
+
    $(this).toggleClass('playing');
 
    if(!$(this).hasClass('playing')) {
       $(this).find('video')[0].pause();
       return;
    }
+
+
+   $(this).find('.background').css('opacity', 1);
 
    $(this).find('video')[0].play();
    
