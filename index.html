@@ -7,17 +7,31 @@
 
    </head>
    <body>
-   <div id="centertitle"><img src="assets/everything.png"></div>
-      <div id="grid-container">
-         <div class="tile video" id="mitchell">
-            <div class="background">
-               <video>
-               <source src="assets/webm/Mitchell_Video.webm" type="video/webm" />
-               <source src="assets/mp4/Mitchell_Video.mp4" type="video/mp4" />
-               </video>
-            </div>
+      <div id="container">
+         <div class="draggable" id="title"><img src="assets/title.svg"></img></div>
+         <div class="draggable tile yt" data-yt="7uCitFAmUmI">
+            <div class="crop"></div>
          </div>
-         <div class="tile video" id="ryan">
+         <!-- SPENCER THESIS -->
+         <div class="draggable tile expand">
+            <div class="cycle-image">
+               <img src="assets/img/spencer/spencer_1.jpg" class="this" />
+               <img src="assets/img/spencer/spencer_2.jpg" />
+               <img src="assets/img/spencer/spencer_3.jpg" />
+               <img src="assets/img/spencer/spencer_4.jpg" />
+            </div>
+            <p>Spencer</p>
+            <p>Living is an individual endeavor. It composes itself from a collection of moments. Moments stripped from consciousness. Moments of internal soliloquy. They formulate and ripen in the breadth of the everyday; they linger or they fade. Their meanings can be provocative or dismal. Environments are where these potentially rich occurrences seed. Environments within, without architecture, maintain an affective quality upon moments. The everyday is posited as revealing and poignant.</p>
+            <p>on cinema. [a scripted reality]</p>
+            <p>The lens and the microphone are the tools of the film-maker. They witness the scene in our absence and through such engender a specific atmosphere, meaning, and expression. Film holds the ability to infiltrate our minds and senses, ultimately inducing our empathy for the moments and people it portrays. The true capturer of moments.</p>
+            <p>on literature. [a true fiction]</p>
+            <p>Prose is the only tool of the writer. Prose spews tone, character, place, drama, nuance, depth. Through its methods it poses to move us, to infatuate us in its meaning, to provoke its dissection.</p>
+            <p>on architecture. [an everyday reality]</p>
+            <p>Architecture exists in the everyday world, not the cinematic world, not the literary one. The everyday is unscripted, present, and ran- dom. If the lens is the media of film, prose of literature, then architecture is suitably a purveyor of everyday life. Space is the lens through which daily lives are led. This architectural lens (space) can deem moments increasingly provocative and illustrative.</p>
+            <p>These disciplines have woven themselves into the crux of this thesis; a thesis concerned definitively with everyday life and the moments it holds. Certain moments, real or fictitious, have the ability to move us, to issue profound memories, to be unequivocally meaningful. These moments, this living, are what develop individual selves; the lives we lead. Whether routine or spontaneous, mundane or sensational, all moments are susceptible to a hollow ignorance or a deep interest and care. Architecture maintains a slew of potentials for a heightened interest, meaning, and consciousness of everyday moments. Through various techniques this thesis is directed to produce exceedingly profound and meaningful moments within the everyday; to induce a sort of consciousness of its subtleties and dramas.</p>
+            <p>At 325 Grand. Lower East Side. NY. NY, a new building proposal aims to engender these evocations, these new consciousnesses; to make everyday life more palpable.</p>
+         </div>
+         <div class="draggable tile video" id="ryan">
             <div class="background">
                <video>
                <source src="assets/webm/Ryan_Video.webm" type="video/webm" />
@@ -25,49 +39,25 @@
                </video>
             </div>
          </div>
-         <div class="tile expand" id="bao"></div>
-         <div class="tile video" id="kristinvellum">
+         <div class="draggable tile expand" id="bao"></div>
+         <div class="draggable tile video" id="kristinvellum">
             <div class="background">
                <source src="assets/webm/Kristin_Video.webm" type="video/webm" />
                <source src="assets/mp4/Kristin_Video.mp4" type="video/mp4" />
                </video>
             </div>
          </div>
-         <div class="tile expand">
+         <div class="draggable tile expand">
             <div class="cycle-image">
-               <img src="assets/img/Thesis/Bao_01.jpg" class="this" />
-               <img src="assets/img/Thesis/Blair_01.jpg" />
-               <img src="assets/img/Thesis/Gabby_01.jpg" />
             </div>
-            <p>There is something pleasant about being able to customize your user experience on the internet. 
-            And there is something engaging about being able to connect with your friends though your 
-            phone. The interactions and networks we build for ourselves in the digital realm is rewarding 
-            because it is real and transcends the digital experience. How can these qualities be extended 
-            into architecture? Architecture is currently bound experientially to one place. It is mostly static and does not beg to be engaged. It lacks the ability to provide feedback and response. Through 
-            design, the engaging qualities of the digital experience can be integrated into architecture to 
-            provide a more interactive architectural experience. By producing spatial effects specific to the 
-            user's (occupant) preferences and their network of stimuli, architecture provide a greater 
-            integrated/networked living experience. These effects should be in response to both local and 
-            remote conditions. Elements like view, lighting and visual cues can be controlled to create these 
-            spatial effects, but first they must be designed to be variable.</p>
-
-            <p>The project proposed here is a residential tower in Singapore that is designed with this new 
-            interactive architecture. It features a dynamic facade system that regulates daylight and view. 
-            Additionally, each unit has a pixelated lighting system that augments spacial occupancy and 
-            atmospheric qualities. These systems both allow the user to customize their living experience as 
-            well as their extended network produce modifications too. The configuration of the tower 
-            maximizes the variable qualities of the spaces. With only three to four units per floor, residents 
-            are able have a wider potential for view. And by using a diagrid tube structural system, the plans 
-            are able to be column free. 
-            </p>
          </div>
 
-         <div class="tile audio">
+         <div class="draggable tile audio">
             <audio>
             <source src="assets/mp3/fairy.mp3" type="audio/mp3" />
             </audio>
          </div>
-         <div class="tile video" id="sharivellum">
+         <div class="draggable tile video" id="sharivellum">
             <video>
             <div class="background">
                <source src="assets/webm/Shari_Video.webm" type="video/webm" />
@@ -76,14 +66,14 @@
             </div>
          </div>
 
-         <div class="tile info">
+         <div class="draggable tile info">
             <h1>WHAT</h1>
             <p>EVERYTHING is an exhibition featuring the undergraduate thesis work of Jackson Studio. The projects each have a unique focus, but all are united in their ambition to re-frame the physical world as a place of augmented experience, in accord with aspects of contemporary culture that the architectural discipline has so far failed to adequately address.</p><p>Each thesis is therefore framed as a challenge to existing practices, and an argument for and demonstration of a new approach to architecture.<br><br></p>
 
          </div>
-         <div class="tile expand" id="kat"></div>
-         <div class="tile expand" id="laura"></div>
-         <div class="tile video" id="katvellum">
+         <div class="draggable tile expand" id="kat"></div>
+         <div class="draggable tile expand" id="laura"></div>
+         <div class="draggable tile video" id="katvellum">
             <video>
             <div class="background">
                <source src="assets/webm/Kat_Video.webm" type="video/webm" />
@@ -91,16 +81,16 @@
                </video>
             </div>
          </div>
-         <div class="tile expand" id="gabby"></div>
-         <div class="tile expand" id="kristin"></div>
-         <div class="tile expand" id="adventure"></div>
-         <div class="tile expand" id="posin"></div>
-         <div class="tile info why">
+         <div class="draggable tile expand" id="gabby"></div>
+         <div class="draggable tile expand" id="kristin"></div>
+         <div class="draggable tile expand" id="adventure"></div>
+         <div class="draggable tile expand" id="posin"></div>
+         <div class="draggable tile info why">
             <h1>WHY</h1>
             <p>The studio's general interest in architecture's nature as an immersive, augmented reality is reflected in the design of the exhibition itself: the content of each thesis project is presented as a series of interactive layers, and the physical infrastructure of the show provides the interface for exploring and interacting with these various layers of content.<br><br></p></div>
-         <div class="tile expand" id="katvellum"></div>
-         <div class="tile expand" id="posinvellum"></div>
-         <div class="tile video" id="mitchellvellum">
+         <div class="draggable tile expand" id="katvellum"></div>
+         <div class="draggable tile expand" id="posinvellum"></div>
+         <div class="draggable tile video" id="mitchellvellum">
             <div class="background">
                <video>
                <source src="assets/webm/Mitchell_Video.webm" type="video/webm" />
@@ -108,12 +98,17 @@
                </video>
             </div>
          </div>
-         <div class="tile expand" id="natalie"></div>
-         <div class="tile info">
+         <div class="draggable tile expand" id="natalie"></div>
+         <div class="draggable tile info">
             <h1>WHO</h1>
             <p></p></div>
-         <div class="tile"></div>
-         <div class="tile video" id="stephanyvellum">
+         <div class="draggable tile comments">
+            <form action="">
+               <input type="text">
+               <input type="submit">
+            </form>
+         </div>
+         <div class="draggable tile video" id="stephanyvellum">
             <div class="background">
                <video>
                <source src="assets/webm/Stephany_Video.webm" type="video/webm" />

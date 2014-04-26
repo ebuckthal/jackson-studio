@@ -1,0 +1,11 @@
+{
+  "name": "jackson-studio-comments",
+  "description": "jackson studio comments",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.x",
+    "redis": "*",
+    "async": "*"
+  }
+}

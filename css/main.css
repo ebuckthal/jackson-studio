@@ -6,201 +6,37 @@
    box-sizing: border-box;
 }
 
-#grid-container {
+#container {
    width: 100%;
    height: auto;
+
+   font-family: Arial, Helvetica, sans-serif;
 }
 
-.tile {
+#title {
+   z-index: 100;
+}
+
+#title img {
+   width: 1000px;
+   z-index: -1;
+}
+
+.draggable {
+
    position: absolute;
-   height: 200px;
-   width: 200px;
    z-index: 0;
-   border: 1px solid black;
    background-size: cover;
    background-repeat: no-repeat;
    cursor: pointer;
-
-   background-color: 'blue';
 }
 
-#allie{
-   background-image: url('../assets/img/Thesis/Allie_01.jpg');
-}
+.tile {
+   height: 200px;
+   width: 200px;
+   border: 1px solid black;
 
-#allievellum{
-   background-image: url('../assets/img/Vellum/Allie_01.jpg');
-}
-
-#andy{
-   background-image: url('../assets/img/Thesis/Andy_01.jpg');
-}
-
-#andyvellum{
-   background-image: url('../assets/img/Vellum/Andy_01.jpg');
-}
-
-#bao{
-   background-image: url('../assets/img/Thesis/Bao_01.jpg');
-}
-
-#baovellum{
-   background-image: url('../assets/img/Vellum/Bao_01.jpg');
-}
-
-#blair{
-   background-image: url('../assets/img/Thesis/Blair_01.jpg');
-}
-
-#blairvellum{
-   background-image: url('../assets/img/Vellum/Blair_01.jpg');
-}
-
-#gabby{
-   background-image: url('../assets/img/Thesis/Gabby_01.jpg');
-}
-
-#gabbyvellum{
-   background-image: url('../assets/img/Vellum/Gabby_01.jpg');
-}
-
-#kat{
-   background-image: url('../assets/img/Thesis/Kat_01.jpg');
-}
-
-#katvellum{
-   background-image: url('../assets/img/Vellum/Kat_01.jpg');
-}
-
-#kristin{
-   background-image: url('../assets/img/Thesis/Kristin_01.jpg');
-}
-
-#kristinvellum{
-   background-image: url('../assets/img/Vellum/Kristin_01.jpg');
-}
-
-#laura{
-   background-image: url('../assets/img/Thesis/Laura_01.jpg');
-}
-
-#lauravellum{
-   background-image: url('../assets/img/Vellum/Laura_01.jpg');
-}
-
-#lawerence {
-   background-image: url('../assets/img/Thesis/Lawerence_01.jpg');
-}
-
-#lawerencevellum {
-   background-image: url('../assets/img/Vellum/Lawerence_01.jpg');
-}
-
-#marki{
-   background-image: url('../assets/img/Thesis/Marki_01.jpg');
-}
-
-#markivellum{
-   background-image: url('../assets/img/Vellum/Marki_01.jpg');
-}
-
-#mitchell{
-   background-image: url('../assets/img/Vellum/Posin_01.jpg');
-}
-
-#mitchellvellum{
-   background-image: url('../assets/img/Thesis/Mitchell_01.jpg');
-}
-
-#natalie{
-   background-image: url('../assets/img/Thesis/Natalie_01.jpg');
-}
-
-#natalievellum{
-   background-image: url('../assets/img/Vellum/Natalie_01.jpg');
-}
-
-#posin{
-   background-image: url('../assets/img/Thesis/Posin_01.jpg');
-}
-
-#posinvellum{
-   background-image: url('../assets/img/Vellum/Posin_01.jpg');
-}
-
-#quoc{
-   background-image: url('../assets/img/Thesis/Quoc_01.jpg');
-}
-
-#quocvellum{
-   background-image: url('../assets/img/Vellum/Quoc_01.jpg');
-}
-
-#ryan{
-   background-image: url('../assets/img/Thesis/Ryan_01.jpg');
-}
-
-#ryanvellum{
-   background-image: url('../assets/img/Vellum/Ryan_01.jpg');
-}
-
-#sam{
-   background-image: url('../assets/img/Thesis/Sam_01.jpg');
-}
-
-#samvellum{
-   background-image: url('../assets/img/Vellum/Sam_01.jpg');
-}
-
-#shari{
-   background-image: url('../assets/img/Thesis/Shari_01.jpg');
-}
-
-#sharivellum{
- /*  background-image: url('../assets/img/Vellum/Shari_01.jpg');*/
-}
-
-#spencer{
-   background-image: url('../assets/img/Thesis/Spencer_01.jpg');
-}
-
-#spencervellum{
-   background-image: url('../assets/img/Vellum/Spencer_01.jpg');
-}
-
-#stephany{
-   background-image: url('../assets/img/Thesis/Stephany_01.jpg');
-}
-
-#stephanyvellum{
-   background-image: url('../assets/img/Vellum/Stephany_01.jpg');
-}
-
-#adventure{
-   background-image: url('../assets/img/Xtra/tiles/Beemo.gif');
-}
-
-#centertitle{
-    width: 300px;
-    height: 100px;
-    position:absolute;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
-    margin:auto;
-}
-
-
-
-.expanded#lawerence {
-   height: 500px;
-   width: 1000px; 
-}
-
-.expanded#laura {
-   height: 500px;
-   width: 600px; 
+   background: black;
 }
 
 .tile i.cover {
@@ -278,14 +114,12 @@
 .info {
    transition: height 1s, width 1s, color 1s;
    overflow: hidden;
-   font-family: Arial, Helvetica, sans-serif;
 }
 
 .info h1 {
    text-align: center;
    width: 200px;
    line-height: 200px;
-   font-family: Arial, Helvetica, sans-serif;
 }
 
 .info * {
@@ -338,7 +172,6 @@
 }
 
 .expand img {
-   position: absolute;
    display: none;
    height: 100%;
    width: auto;
@@ -350,7 +183,6 @@
 
 .expand.expanded img {
    margin: auto 0;
-   height: auto;
    width: 100%;
 }
 
@@ -391,40 +223,69 @@
    overflow: hidden;
 }
 
-.expand.expanded .cycle-image {
-   height: 400px;
-}
-
 .expand p {
    width: 600px;
 }
 
-.yt.playing i.cover {
+.yt i {
    visibility: hidden;
    display: none;
+}
+
+.yt .crop {
+   width: 200px;
+   height: 200px;
+   overflow: hidden;
+}
+
+.yt.large .crop {
+
+   width: 400px;
+   height: 400px;
 }
 
 .yt {
    transition: height 1s, width 1s;
 }
 
-.yt.playing {
-   height: 390px;
-   width: 640px;
+.yt {
+   height: 200px;
+   width: 200px;
+}
+
+.yt.large {
+   height: 400px;
+   width: 400px;
+}
+
+iframe {
+   position: relative;
+   left: -78px;
+}
+
+.large iframe {
+   position: relative;
+   left: -160px;
 }
 
 
 /*MAGIC YOUTUBE OVERLAY DO NOT TOUCH*/
+
 .ytplayer {
    z-index: -100;
 }
 
 
 .overlay {
-   height: 390px;
-   width: 640px;
+   height: 200px;
+   width: 200px;
    z-index: 100;
    position: absolute;
+   overflow:hidden;
    top: 0px;
    left: 0px;
+}
+.overlay.large {
+   height: 400px;
+   width: 400px;
 }
