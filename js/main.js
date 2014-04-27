@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+
    $('#title')
    .css('top', function() {
       return ($(window).height() / 2) - ($(this).height()/2);
@@ -68,41 +69,29 @@ $('.cycle-image')
 .append('<i class="fa fa-chevron-circle-left"></i>')
 .append('<i class="fa fa-chevron-circle-right"></i>');
 
-$('.cycle-image img').each(function() {
-   var h = $(this).height();
-
-   $(this).parent().css('height', function() {
-      return Math.max($(this).height(), h);
-   });
-
-});
-
 $('.expand').append('<i class="fa fa-plus-circle cover"></i>');
 $('.expand').on('click', function() {
 
-   var nImg = $(this).find('.cycle-image').find('img').length;
-   this.i = ((this.i+1) % nImg) || 0;
-
-   $(this).find('.cycle-image').data('length', nImg);
+   var parent = $(this);
 
    $(this).toggleClass('expanded');
 
-   $(this).find('.fa').on('click', function(e) {
+   $(this).find('.fa-chevron-circle-right').on('click', function(e) {
       e.stopPropagation();
 
-      var length = $(this).parent().data('length');
-      var i = $(this).parent().data('i') || 0;
+      var next = parent.find('.this').next('.cycle-image');
+      var first = parent.find('.cycle-image').first();
 
-      i = (i+1) % length;
+      parent.find('.this').removeClass('this');
 
-      $(this).parent().data('i', i);
+      if(next.length == 0) {
+         first.addClass('this');
 
-      $(this).parent().find('.this').removeClass('this');
-      $(this).parent().find('img:eq(' + i + ')').addClass('this');
-
-         })
-
-      });
+      } else {
+         next.addClass('this');
+      }
+   });
+});
 
 $('.video').append('<i class="fa fa-play-circle cover"></i><i class="fa fa-pause cover"></i>');
 $('.video').on('click', function() {
