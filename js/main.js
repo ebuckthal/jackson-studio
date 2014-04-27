@@ -189,45 +189,24 @@ $('.comments').on('click', function() {
    $(this).toggleClass('expanded');
 });
 
-function addComment(lat, lng, time, text) {
+function addComment(loc, time, text) {
    var date = new Date(parseInt(time));
 
-   var latlng = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
+   var comment = '<div class="comment">' 
+      + '<p>' + text + '</p>'
+      + '<p>' + loc + '</p>'
+      + '<p data-date="' + time + '">' 
+         + date.getHours() + ' ' 
+         + date.getMinutes() + ' ' 
+         + date.getSeconds() + '</p>'
+      + '</div>'; 
 
-   return geocoder.geocode({'latLng': latlng}, function(results, status) {
+   $('.other-comments').prepend(comment);
 
-      console.log(status);
-      if (status != google.maps.GeocoderStatus.OK) {
-         return "something went wrong";
-      }
-
-      if (!results[1]) {
-         return "location not specified";
-      }
-
-      var city = results[1]['address_components'][1].short_name;
-      var state = results[1]['address_components'][3].short_name;
-      var country = results[1]['address_components'][4].short_name;
-
-      var comment = '<div class="comment">' 
-               + '<p>' + text + '</p>'
-               + '<p>' + city + ', ' + state + ', ' + country + '</p>'
-               + '<p data-date="' + time + '">' 
-                  + date.getHours() + ' ' 
-                  + date.getMinutes() + ' ' 
-                  + date.getSeconds() + '</p>'
-               + '</div>'; 
-
-      $('.other-comments').prepend(comment);
-
-      $('.other-comments .comment').sort(function(a,b) {
-         console.log(a,b);
-         return a.dataset.date > b.dataset.date;
-      })
-   }, 
-   function() {
-      alert('there was an error with geolocation');
-   });
+   $('.other-comments .comment').sort(function(a,b) {
+      console.log(a,b);
+      return a.dataset.date > b.dataset.date;
+   })
 }
 
 function loadComments() {
@@ -241,9 +220,7 @@ function loadComments() {
    })
    .success(function(d) {
       d.forEach(function(value, index) {
-         setTimeout(function() {
-            addComment(value.lat, value.lon, value.time, value.text);
-         }, 1000 * index)
+         addComment(value.loc, value.time, value.text);
       }, this);
    })
    .error(function(m) {
@@ -274,20 +251,44 @@ $('.comments form').submit(function(e) {
       var lng = position.coords.longitude;
       var time = Date.now();
 
-      var toSend = { lat: lat, lon: lng, time: time, text: text };
 
-      addComment(lat, lng, time, text);
 
-      $.ajax({
-         type: 'POST',
-         url: 'http://thesis.ebuckthal.com:8888/comments',
-         crossDomain: true,
-         dataType: 'json',
-         data: toSend,
-      })
-      .error(function(m) {
-         console.log(m);
+      var latlng = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
+      geocoder.geocode({'latLng': latlng}, function(results, status) {
+
+         if (status != google.maps.GeocoderStatus.OK) {
+            return "something went wrong";
+         }
+
+         if (!results[1]) {
+            return "location not specified";
+         }
+
+         var city = results[1]['address_components'][1].short_name;
+         var state = results[1]['address_components'][3].short_name;
+         var country = results[1]['address_components'][4].short_name;
+
+         var loc = city + ', ' + state + ', ' + country;
+
+         var toSend = { loc: loc, time: time, text: text };
+         addComment(loc, time, text);
+         
+         $.ajax({
+            type: 'POST',
+            url: 'http://thesis.ebuckthal.com:8888/comments',
+            crossDomain: true,
+            dataType: 'json',
+            data: toSend,
+         })
+         .error(function(m) {
+            console.log(m);
+         });
+
+      }, 
+      function() {
+         alert('there was an error with geolocation');
       });
+
 
    })
 });
