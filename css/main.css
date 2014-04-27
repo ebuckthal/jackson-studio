@@ -61,16 +61,6 @@
    transition: height 1s, width 1s, background-color 1s;
 }
 
-.video .background {
-   position: absolute;
-   height: 100%;
-   width: 100%;
-   background-color: black;
-   opacity: 0;
-
-   transition: opacity 1s;
-}
-
 .video:hover i.cover {
    visibility: hidden;
 }
@@ -84,7 +74,27 @@
    pointer-events: none;
    height: 200px;
    width: 300px;
-   transition: height 1s, width 1s;
+   transition: height 1s, width 1s, opacity 1s;
+}
+
+.video.before video {
+   opacity: 0;
+}
+
+.video .background {
+   opacity: 0;
+   position:absolute;
+   height: 300px;
+   width: 500px; 
+   background-size: cover;
+   transition: height 1s, width 1s, opacity 1s;
+}
+
+.video.before .background {
+   opacity: 1;
+   height: 200px;
+   width: 200px;
+   transition: height 1s, width 1s, opacity 1s;
 }
 
 

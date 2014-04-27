@@ -118,7 +118,7 @@ $('.video').on('click', function() {
    }
 
 
-   $(this).find('.background').css('opacity', 1);
+   //$(this).find('.background').css('opacity', 1);
 
    $(this).find('video')[0].play();
 
