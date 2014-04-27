@@ -111,6 +111,23 @@
    width: 500px;
 }
 
+.comments {
+   color: rgba(255,255,255,0.7);
+   transition: height 1s, width 1s, color 1s;
+   overflow: hidden;
+}
+
+.comments h1 {
+   text-align: center;
+   width: 200px;
+   line-height: 200px;
+}
+
+.comments.expanded {
+   height: auto;
+   width: 500px;
+}
+
 .info {
    transition: height 1s, width 1s, color 1s;
    overflow: hidden;
