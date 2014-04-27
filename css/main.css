@@ -194,13 +194,20 @@
 .expand.expanded {
    width: 600px;
    height: auto;
+   transition: height 1s, width 1s;
 }
 
 .expand p {
-   display: none;
+   font-size: 9pt;
+   width: 600px;
+   opacity: 0;
+   transition: opacity 1s, margin-left 1s;
+   padding: 10px;
+   margin-left: -100px;
 }
 .expand.expanded p{
-   display: inherit;
+   opacity: 1;
+   margin-left: 0;
 }
 
 .expand .cycle-image {
