@@ -16,11 +16,11 @@ $('.draggable')
       return;
    }
 
-   $('.draggable').removeClass("active");
-   $(this).addClass('active').css('z-index', $('.draggable').size());
+   $('.tile').removeClass("active");
+   $(this).addClass('active').css('z-index', $('.tile').size());
 
 
-   $('.draggable').each(function(k,v) {
+   $('.tile').each(function(k,v) {
       $(this).css('z-index', function() { return $(this).css('z-index')-1; });
    });
 
@@ -28,7 +28,7 @@ $('.draggable')
 
 var tiles = $(".tile")
 
-$('.draggable').each(function(index) {
+$('.tile').each(function(index) {
    $(this).css('z-index', index);
 });
 
