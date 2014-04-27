@@ -34,7 +34,7 @@ app
 })
 .post('/comments', function(req, res, next) {
 
-   if(!(req.body.time && req.body.text && req.body.lat && req.body.lon)) {
+   if(!(req.body.time && req.body.text && req.body.loc)) {
       return next();
    }
 
@@ -45,11 +45,9 @@ app
       db.hmset('cid:'+reply, 
          'text', req.body.text, 
          'time', req.body.time, 
-         'lat', req.body.lat, 
-         'lon', req.body.lon);
+         'loc', req.body.loc);
 
       db.sadd('comments', reply);
-      console.log('pushed');
 
       res.send(200);
    });
