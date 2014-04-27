@@ -84,9 +84,9 @@
 .video .background {
    opacity: 0;
    position:absolute;
+   background-position: center;
    height: 300px;
-   width: 500px; 
-   background-size: cover;
+   width: 500px;
    transition: height 1s, width 1s, opacity 1s;
 }
 
@@ -94,7 +94,6 @@
    opacity: 1;
    height: 200px;
    width: 200px;
-   transition: height 1s, width 1s, opacity 1s;
 }
 
 

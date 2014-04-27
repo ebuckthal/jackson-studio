@@ -104,7 +104,6 @@ $('.expand').on('click', function() {
 
       });
 
-$('.video').addClass('before');
 $('.video').append('<i class="fa fa-play-circle cover"></i><i class="fa fa-pause cover"></i>');
 $('.video').on('click', function() {
 
