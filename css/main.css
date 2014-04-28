@@ -58,7 +58,19 @@
 
 .video {
    overflow:hidden;
-   transition: height 1s, width 1s, background-color 1s;
+   max-height: 200px;
+   max-width: 200px;
+   height: initial;
+   width: initial;
+   transition: max-height 1s, max-width 1s;
+}
+
+.video.playing {
+   height: auto;
+   width: auto;
+   max-height: 400px;
+   max-width: 500px;
+   transition: max-height 1s, max-width 1s;
 }
 
 .video:hover i.cover {
@@ -70,10 +82,12 @@
 }
 
 .video video{
-   position: absolute;
    pointer-events: none;
    width: 500px;
-   transition: left 1s, opacity 1s;
+   margin-left: -150px;
+   margin-top: -50px;
+   opacity: 1;
+   transition: margin-top 1s, margin-left 1s, opacity 1s;
 }
 
 .video.before video {
@@ -81,13 +95,16 @@
 }
 
 .video.playing video {
-   width: 500px;
+   margin-left: 0;
+   margin-top: 0;
 }
 
 .video .background {
    opacity: 0;
-   position:absolute;
+   top: 0;
+   position: absolute;
    background-position: center;
+   background-size: cover;
    height: 300px;
    width: 500px;
    transition: height 1s, width 1s, opacity 1s;
@@ -97,11 +114,7 @@
    opacity: 1;
    height: 200px;
    width: 200px;
-}
-
-
-.video.playing{
-   width: 500px;
+   transition: height 1s, width 1s, opacity 1s;
 }
 
 .video.playing:hover i.cover {
@@ -113,10 +126,9 @@
 }
 
 .video.playing i.cover {
-   line-height: 300px;
-   width: 500px;
+   line-height: auto;
+   width: auto;
 }
-
 
 .comments {
    color: rgba(255,255,255,0.7);
@@ -132,6 +144,18 @@
 .info {
    transition: height 1s, width 1s, color 1s;
    overflow: hidden;
+   height: inherit;
+}
+
+.info .text {
+   overflow: hidden;
+   max-height: 0px;
+   transition: max-height 1s;
+}
+
+.info.expanded .text {
+   max-height: 500px;
+   transition: max-height 1s;
 }
 
 .tile h1 {
@@ -152,6 +176,7 @@
    padding: 10px 20px;
    margin-left: -100px;
    transition: margin-left 1s, color 1s;
+   width: 300px;
 }
 
 .info.expanded {
@@ -160,7 +185,6 @@
 }
 
 .info.expanded * {
-   visibility: visible;
    width: 300px;
    color: rgba(255,255,255,1);
 }
@@ -189,6 +213,7 @@
    overflow: hidden;
    transition: height 1s, width 1s;
    background-color: white;
+   height: auto;
 }
 
 .expand.expanded {
@@ -202,12 +227,24 @@
    width: 600px;
    opacity: 0;
    transition: opacity 1s, margin-left 1s;
-   padding: 10px;
-   margin-left: -100px;
+   padding: 20px;
+   right: 0;
+   margin-left: -400px;
 }
 .expand.expanded p{
    opacity: 1;
    margin-left: 0;
+}
+
+.expand .text {
+   overflow: hidden;
+   max-height: 0px;
+   transition: max-height 1s;
+}
+
+.expand.expanded .text {
+   max-height: 500px;
+   transition: max-height 1s;
 }
 
 .expand .cycle-image {
@@ -227,6 +264,7 @@
 .expand.expanded .cycle-image {
    width: 600px;
    height: 400px;
+   transition: height 1s, width 1s;
 }
 
 .yt i {
