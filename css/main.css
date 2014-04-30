@@ -24,8 +24,8 @@
 
 #title {
    z-index: 100;
-   transform: scaleY(0.8);
-   -webkit-transform: scaleY(0.8);
+   /*transform: scaleY(0.8);
+   -webkit-transform: scaleY(0.8);*/
 }
 
 #title img {
@@ -51,9 +51,9 @@
 }
 
 #title h1 {
-   font-size: 120pt;
-   letter-spacing: 3px;
+   font-size: 140pt;
    display: block;
+   font-weight: normal;
 }
 
 #title .text {
@@ -66,7 +66,30 @@
    position: absolute;
    top: 0;
    color: transparent;
-   text-shadow: 0 0 40px #ff0099;
+   text-shadow: 0 0 20px #ff0099;
+}
+
+#title .shadow.pulse {
+   -webkit-animation-name: pulse;
+   -webkit-animation-duration: 5s;
+   -webkit-animation-iteration-count: infinite;
+   -webkit-animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes pulse {
+   0% { text-shadow: 0 0 20px rgba(255,0,153,0); }
+   30% { 
+      text-shadow: 0 0 40px #ff0099; 
+   }
+   60% { 
+      text-shadow: 0 0 40px rgba(255,0,153, 0); 
+   }
+   71% { 
+      text-shadow: 0 0 20px rgba(255,0,153, 0); 
+   }
+   100% { 
+      text-shadow: 0 0 20px rgba(255,0,153, 1); 
+   }
 }
 
 .bullet {
