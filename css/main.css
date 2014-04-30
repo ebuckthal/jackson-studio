@@ -24,6 +24,8 @@
 
 #title {
    z-index: 100;
+   transform: scaleY(0.8);
+   -webkit-transform: scaleY(0.8);
 }
 
 #title img {
@@ -56,19 +58,15 @@
 
 #title .text {
    color: white;
-   position: absolute;
+   position: relative;
    top: 0;
 }
 
 #title .shadow {
-   color: transparent;
-   text-shadow: 0 0 20px magenta;
-}
-
-#title .shadow.two {
    position: absolute;
    top: 0;
-   text-shadow: 0 0 30px magenta;
+   color: transparent;
+   text-shadow: 0 0 40px #ff0099;
 }
 
 .bullet {
