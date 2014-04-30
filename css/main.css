@@ -1,3 +1,12 @@
+@font-face {
+   font-family: 'Bullet';
+   src: url('../assets/font/Bullet-SmallCaps.woff');
+}
+@font-face {
+   font-family: 'Bullet Alt';
+   src: url('../assets/font/Bullet-SmallCapsAlt.woff');
+}
+
 * {
    margin: 0;
    padding: 0;
@@ -39,7 +48,38 @@
    background: black;
 }
 
+#title h1 {
+   font-size: 180pt;
+   letter-spacing: 3px;
+   display: block;
+}
+
+#title .text {
+   color: white;
+   position: absolute;
+   top: 0;
+}
+
+#title .shadow {
+   color: transparent;
+   text-shadow: 0 0 20px magenta;
+}
+
+#title .shadow.two {
+   position: absolute;
+   top: 0;
+   text-shadow: 0 0 30px magenta;
+}
+
+.bullet {
+   font-family: 'Bullet';
+}
+.bullet-alt {
+   font-family: 'Bullet Alt';
+}
+
 .tile i.cover {
+   top: 0;
    position: absolute;
    visibility: hidden;
    text-align: center;
@@ -79,6 +119,13 @@
 
 .video:hover i.cover.fa-play-circle {
    visibility: visible;
+}
+
+.video.playing i {
+   position: absolute;
+   top: 0; left: 0; bottom: 0; right: 0;
+   margin: auto;
+   line-height: 100%;
 }
 
 .video video{
@@ -123,11 +170,6 @@
 
 .video.playing:hover i.cover.fa-pause {
    visibility: visible;
-}
-
-.video.playing i.cover {
-   line-height: auto;
-   width: auto;
 }
 
 .comments {
