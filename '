@@ -64,6 +64,7 @@
    position: absolute;
    top: 0;
    color: transparent;
+   text-shadow: 0 0 20px #ff0099;
 }
 
 #title .shadow.pulse {
@@ -75,8 +76,15 @@
 
 @-webkit-keyframes pulse {
    0% { text-shadow: 0 0 20px rgba(255,0,153,1); }
-   50% { text-shadow: 0 0 40px rgba(255,0,153,1); }
-   100% { text-shadow: 0 0 20px rgba(255,0,153,1); }
+   60% { 
+      text-shadow: 0 0 40px rgba(255,0,153, 0); 
+   }
+   71% { 
+      text-shadow: 0 0 20px rgba(255,0,153, 0); 
+   }
+   100% { 
+      text-shadow: 0 0 20px rgba(255,0,153, 1); 
+   }
 }
 
 .bullet {
