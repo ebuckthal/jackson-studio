@@ -31,6 +31,16 @@
    z-index: -1;
 }
 
+.b-lazy {
+   opacity: 0;
+}
+.b-lazy.b-loaded {
+   opacity: 1;
+}
+
+
+
+
 .draggable {
 
    position: absolute;
@@ -43,9 +53,6 @@
 .tile {
    height: 200px;
    width: 200px;
-   border: 1px solid black;
-
-   background: black;
 }
 
 #title h1 {
@@ -64,13 +71,15 @@
    position: absolute;
    top: 0;
    color: transparent;
+   text-shadow: 0 0 20px rgba(255,0,153,1);
 }
 
 #title .shadow.pulse {
-   -webkit-animation-name: pulse;
+   /*-webkit-animation-name: pulse;
    -webkit-animation-duration: 5s;
    -webkit-animation-iteration-count: infinite;
    -webkit-animation-timing-function: ease-in-out;
+   */
 }
 
 @-webkit-keyframes pulse {
@@ -111,6 +120,7 @@
    height: initial;
    width: initial;
    transition: max-height 1s, max-width 1s;
+   background:black;
 }
 
 .video.playing {
@@ -195,6 +205,7 @@
    transition: height 1s, width 1s, color 1s;
    overflow: hidden;
    height: inherit;
+   background: black;
 }
 
 .info .text {
@@ -286,6 +297,12 @@
    margin-left: 0;
 }
 
+.expand .nav {
+   position: absolute;
+   top: 0;
+   left: 0;
+}
+
 .expand .text {
    overflow: hidden;
    max-height: 0px;
@@ -302,7 +319,7 @@
    width: 200px;
    background-size:cover;
    background-repeat: no-repeat;
-   transition: height 1s, width 1s;
+   transition: height 1s, width 1s, opacity 1s;
    position: relative;
    display: none;
 }
