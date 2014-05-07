@@ -109,6 +109,10 @@
    transition: line-height 1s, width 1s;
 }
 
+.tile.expanded .cover {
+	display: none;
+}
+
 .tile:hover i.cover {
    visibility: visible;
 }
@@ -141,9 +145,9 @@
 
 .video.playing i {
    position: absolute;
-   top: 0; left: 0; bottom: 0; right: 0;
    margin: auto;
-   line-height: 100%;
+   width: 500px;
+   line-height: 300px; 
 }
 
 .video video{
@@ -165,7 +169,6 @@
 }
 
 .video .background {
-   opacity: 0;
    top: 0;
    position: absolute;
    background-position: center;
@@ -301,8 +304,12 @@
    position: absolute;
    top: 0;
    left: 0;
+	display: none;
 }
+.expand.expanded .nav {
+	display: inherit;
 
+}
 .expand .text {
    overflow: hidden;
    max-height: 0px;

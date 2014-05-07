@@ -1,5 +1,3 @@
-$(document).ready(function() {
-
    $('#title')
    .css('top', function() {
       return ($(window).height() / 2) - ($(this).height()/2);
@@ -46,6 +44,4 @@ for(var i = 0, tile, nextTop = 0, nextLeft = 0; tile = tiles[i++]; ) {
 
 $('.info').on('click', function() {
    $(this).toggleClass('expanded');
-});
-
 });
