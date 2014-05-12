@@ -13,8 +13,6 @@ $(document).ready(function() {
    $('.expand').on('click', function() {
 
       $(this).toggleClass('expanded');
-
-      $(this).find('.cover').css('display', 'none');
    });
 
    $('.expand .fa-chevron-circle-right').on('click', function(e) {
