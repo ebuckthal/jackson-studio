@@ -53,6 +53,8 @@
 .tile {
    height: 200px;
    width: 200px;
+   background-color: black;
+   border: 2px solid red;
 }
 
 #title h1 {
@@ -120,7 +122,7 @@
    height: initial;
    width: initial;
    transition: max-height 1s, max-width 1s;
-   background:black;
+   background-color:black;
 }
 
 .video.playing {
@@ -176,6 +178,7 @@
 }
 
 .video.before .background {
+   position: relative;
    opacity: 1;
    height: 200px;
    width: 200px;
@@ -196,8 +199,21 @@
    overflow: hidden;
 }
 
+.comments h1 {
+   transition: width 1s;
+}
+
 .comments.expanded {
    height: auto;
+   width: 500px;
+}
+
+.comments.expanded h1 {
+   width: 500px;
+}
+
+.comments .comment {
+   padding: 5px;
    width: 500px;
 }
 
@@ -205,7 +221,6 @@
    transition: height 1s, width 1s, color 1s;
    overflow: hidden;
    height: inherit;
-   background: black;
 }
 
 .info .text {

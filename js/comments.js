@@ -4,6 +4,11 @@ $('.comments').on('click', function() {
    $(this).toggleClass('expanded');
 });
 
+$('.comments form').on('click', function(e) {
+   e.stopPropagation();
+});
+
+
 function addComment(loc, time, text) {
    var date = new Date(parseInt(time));
 
@@ -46,7 +51,10 @@ function loadComments() {
 
 $('.other-comments').ready(function(e) {
    $(this).empty();
-   loadComments();
+   //loadComments();
+   addComment('New York, USA', Date.now(), 'Looks great guys');
+   addComment('Copenhagen, Denmark', Date.now(), 'A');
+   addComment('San Luis Obispo, USA', Date.now(), 'This is a really long comment, though maybe we should limit comments to be shorter than 140 characters? Twitter is the magic number, right?');
 });
 
 $('.comments form').submit(function(e) {
@@ -55,6 +63,10 @@ $('.comments form').submit(function(e) {
 
    var text = $(this).find('input').val();
 
+   console.log('text');
+   addComment('San Luis Obispo, USA', Date.now(), text); 
+
+   return true;
 
    if (!navigator.geolocation){
       alert('sorry, geolocation is not supported by your browser');
@@ -110,4 +122,4 @@ $('.comments form').submit(function(e) {
 
 });
 
-geocoder = new google.maps.Geocoder();
+//geocoder = new google.maps.Geocoder();
