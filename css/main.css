@@ -171,6 +171,7 @@
 }
 
 .video .background {
+   display: none;
    top: 0;
    position: absolute;
    background-position: center;
@@ -181,6 +182,7 @@
 }
 
 .video.before .background {
+   display: block;
    position: relative;
    opacity: 1;
    height: 200px;
