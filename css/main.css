@@ -201,7 +201,8 @@
 }
 
 .comments {
-   color: rgba(255,255,255,0.7);
+   background-color: #FFFF00;
+   color: rgba(0,0,0,0.7);
    transition: width 1s, color 1s;
    overflow: hidden;
    height: inherit;
@@ -212,7 +213,7 @@
 }
 
 .comments.expanded {
-   color: rgba(255,255,255,1);
+   color: rgba(0,0,0,1);
    height: auto;
    width: 500px;
 }
@@ -258,11 +259,10 @@
 .comments .comment {
    padding: 10px;
    font-size: 9pt;
-   color: rgba(255,255,255,0.7);
+   color: rgba(0,0,0,0.7);
 }
 
 .comments .comment .text {
-   color: white;
    padding-bottom: 5px;
 }
 
@@ -289,9 +289,6 @@
    background-color:#00FF00;
 }
 
-.info.why {
-   background-color: #FFFF00;
-}
 
 .info.who {
    background-color: #33FFFF;
