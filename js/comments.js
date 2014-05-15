@@ -10,15 +10,14 @@ $('.comments form').on('click', function(e) {
 
 
 function addComment(loc, time, text) {
-   var date = new Date(parseInt(time));
+
+   var m = moment(new Date(parseInt(time)));
 
    var comment = '<div class="comment">' 
-      + '<p>' + text + '</p>'
-      + '<p>' + loc + '</p>'
-      + '<p data-date="' + time + '">' 
-         + date.getHours() + ' ' 
-         + date.getMinutes() + ' ' 
-         + date.getSeconds() + '</p>'
+      + '<p class="text">' + text + '</p>'
+      + '<p class="loc">' + loc + '</p>'
+      + '<p class="time" data-date="' + time + '">' 
+         + m.format('MMMM Do h:mm a') + '</p>'
       + '</div>'; 
 
    $('.other-comments').prepend(comment);
@@ -51,10 +50,7 @@ function loadComments() {
 
 $('.other-comments').ready(function(e) {
    $(this).empty();
-   //loadComments();
-   addComment('New York, USA', Date.now(), 'Looks great guys');
-   addComment('Copenhagen, Denmark', Date.now(), 'A');
-   addComment('San Luis Obispo, USA', Date.now(), 'This is a really long comment, though maybe we should limit comments to be shorter than 140 characters? Twitter is the magic number, right?');
+   loadComments();
 });
 
 $('.comments form').submit(function(e) {
@@ -62,11 +58,7 @@ $('.comments form').submit(function(e) {
    e.preventDefault();
 
    var text = $(this).find('input').val();
-
-   console.log('text');
-   addComment('San Luis Obispo, USA', Date.now(), text); 
-
-   return true;
+   $(this).css('opacity', '0.5');
 
    if (!navigator.geolocation){
       alert('sorry, geolocation is not supported by your browser');
@@ -77,7 +69,6 @@ $('.comments form').submit(function(e) {
       var lat = position.coords.latitude;
       var lng = position.coords.longitude;
       var time = Date.now();
-
 
 
       var latlng = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
@@ -99,6 +90,8 @@ $('.comments form').submit(function(e) {
 
          var toSend = { loc: loc, time: time, text: text };
          addComment(loc, time, text);
+         $('.comments form').css('opacity', '1');
+         $('.comments form .text').val('')
          
          $.ajax({
             type: 'POST',
@@ -107,7 +100,7 @@ $('.comments form').submit(function(e) {
             dataType: 'json',
             data: toSend,
          })
-         .error(function(m) {
+         .fail(function(m) {
             console.log(m);
          });
 
@@ -122,4 +115,4 @@ $('.comments form').submit(function(e) {
 
 });
 
-//geocoder = new google.maps.Geocoder();
+geocoder = new google.maps.Geocoder();

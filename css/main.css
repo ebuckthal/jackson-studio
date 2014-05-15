@@ -202,8 +202,9 @@
 
 .comments {
    color: rgba(255,255,255,0.7);
-   transition: height 1s, width 1s, color 1s;
+   transition: width 1s, color 1s;
    overflow: hidden;
+   height: inherit;
 }
 
 .comments h1 {
@@ -211,6 +212,7 @@
 }
 
 .comments.expanded {
+   color: rgba(255,255,255,1);
    height: auto;
    width: 500px;
 }
@@ -219,9 +221,49 @@
    width: 500px;
 }
 
-.comments .comment {
-   padding: 5px;
+.comments .comment-container {
+   overflow: hidden;
    width: 500px;
+   opacity: 0;
+   max-height: 0px;
+   margin-left: -200px;
+   transition: max-height 1s, margin-left 1s, opacity 1s;
+}
+
+.comments.expanded .comment-container {
+   max-height: 800px;
+   margin-left: 0px;
+   opacity: 1;
+   transition: max-height 1s, margin-left 1s, opacity 1s;
+}
+
+.comments form {
+   padding: 5px;
+   width: 100%;
+   transition: opacity 1s;
+}
+
+.comments form .text {
+   width: 80%;
+}
+
+.comments form .button {
+   width: 19%;
+}
+
+.comments .other-comments {
+   padding: 5px;
+}
+
+.comments .comment {
+   padding: 10px;
+   font-size: 9pt;
+   color: rgba(255,255,255,0.7);
+}
+
+.comments .comment .text {
+   color: white;
+   padding-bottom: 5px;
 }
 
 .info {
@@ -232,6 +274,7 @@
 }
 
 .info .text {
+   font-size: 9pt;
    overflow: hidden;
    max-height: 0px;
    transition: max-height 1s;
@@ -240,6 +283,10 @@
 .info.expanded .text {
    max-height: 500px;
    transition: max-height 1s;
+}
+
+.info.how {
+   background-color:#00FF00;
 }
 
 .info.why {
