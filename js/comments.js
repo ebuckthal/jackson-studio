@@ -1,3 +1,5 @@
+var GEOlocation = undefined;
+
 $(function() {
 
 $('.comments').on('click', function() {
@@ -57,8 +59,36 @@ $('.comments form').submit(function(e) {
 
    e.preventDefault();
 
+   if(typeof GEOlocation == undefined) {
+      alert('unable to determine location');
+      return;
+   }
+
    var text = $(this).find('input').val();
-   $(this).css('opacity', '0.5');
+   var time = Date.now();
+   var toSend = { loc: GEOlocation, time: time, text: text };
+
+   addComment(GEOlocation, time, text);
+   $('.comments form .text').val('')
+   
+   $.ajax({
+      type: 'POST',
+      url: 'http://thesis.ebuckthal.com:8888/comments',
+      crossDomain: true,
+      dataType: 'json',
+      data: toSend,
+   })
+   .fail(function(m) {
+      console.log(m);
+   });
+
+
+   })
+});
+
+geocoder = new google.maps.Geocoder();
+
+$(function() {
 
    if (!navigator.geolocation){
       alert('sorry, geolocation is not supported by your browser');
@@ -68,51 +98,26 @@ $('.comments form').submit(function(e) {
    navigator.geolocation.getCurrentPosition(function(position) {
       var lat = position.coords.latitude;
       var lng = position.coords.longitude;
-      var time = Date.now();
 
 
       var latlng = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
       geocoder.geocode({'latLng': latlng}, function(results, status) {
 
          if (status != google.maps.GeocoderStatus.OK) {
-            return "something went wrong";
+            return;
          }
 
          if (!results[1]) {
-            return "location not specified";
+            return;
          }
 
          var city = results[1]['address_components'][1].short_name;
          var state = results[1]['address_components'][3].short_name;
          var country = results[1]['address_components'][4].short_name;
 
-         var loc = city + ', ' + state + ', ' + country;
+         GEOlocation = city + ', ' + state + ', ' + country;
 
-         var toSend = { loc: loc, time: time, text: text };
-         addComment(loc, time, text);
-         $('.comments form').css('opacity', '1');
-         $('.comments form .text').val('')
-         
-         $.ajax({
-            type: 'POST',
-            url: 'http://thesis.ebuckthal.com:8888/comments',
-            crossDomain: true,
-            dataType: 'json',
-            data: toSend,
-         })
-         .fail(function(m) {
-            console.log(m);
-         });
-
-      }, 
-      function() {
-         alert('there was an error with geolocation');
       });
-
-
-   })
-});
+   });
 
 });
-
-geocoder = new google.maps.Geocoder();
