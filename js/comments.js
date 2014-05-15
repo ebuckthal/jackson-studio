@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
 
 $('.comments').on('click', function() {
    $(this).toggleClass('expanded');

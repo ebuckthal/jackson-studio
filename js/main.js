@@ -1,10 +1,5 @@
-   $('#title')
-   .css('top', function() {
-      return ($(window).height() / 2) - ($(this).height()/2);
-   })
-   .css('left', function() {
-      return ($(window).width() / 2) - ($(this).width()/2);
-   });
+$(function() {
+
 
 $('.draggable')
 .draggable()
@@ -34,6 +29,8 @@ for(var i = 0, tile, nextTop = 0, nextLeft = 0; tile = tiles[i++]; ) {
    tile.style.top = nextTop + 'px';
    tile.style.left = nextLeft + 'px';
 
+   tile.style.opacity = '1';
+
    nextLeft += 210;
 
    if(nextLeft >= $(window).width()) {
@@ -44,4 +41,6 @@ for(var i = 0, tile, nextTop = 0, nextLeft = 0; tile = tiles[i++]; ) {
 
 $('.info').on('click', function() {
    $(this).toggleClass('expanded');
+});
+
 });

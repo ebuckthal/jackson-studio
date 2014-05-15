@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
 
    $('.expand')
    //.append('<i class="fa fa-chevron-circle-left nav"></i>')

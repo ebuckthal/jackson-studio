@@ -43,18 +43,20 @@
 
 .draggable {
 
+   opacity: 0;
    position: absolute;
    z-index: 0;
    background-size: cover;
    background-repeat: no-repeat;
-   cursor: pointer;
+   cursor: move;
+   transition: opacity 1s;
 }
 
 .tile {
    height: 200px;
    width: 200px;
    background-color: black;
-   border: 2px solid red;
+   cursor: pointer;
 }
 
 #title h1 {
@@ -223,6 +225,7 @@
 }
 
 .info {
+   color: black;
    transition: height 1s, width 1s, color 1s;
    overflow: hidden;
    height: inherit;
@@ -239,21 +242,29 @@
    transition: max-height 1s;
 }
 
+.info.why {
+   background-color: #FFFF00;
+}
+
+.info.who {
+   background-color: #33FFFF;
+}
+
+.info.what {
+   background-color: #FF6600;
+}
+
 .tile h1 {
    -webkit-transform: scale(1.2,1);
    transform: scale(1.2,1);
    text-align: center;
    width: 200px;
    line-height: 200px;
-}
-
-.info * {
-   color: rgba(255,255,255,0.7);
-   transition: width 1s, color 1s;
+   transition: width 1s;
 }
 
 .info p {
-   color: rgba(255,255,255,0);
+   color: rgba(0,0,0,0);
    padding: 10px 20px;
    margin-left: -100px;
    transition: margin-left 1s, color 1s;
@@ -267,7 +278,7 @@
 
 .info.expanded * {
    width: 300px;
-   color: rgba(255,255,255,1);
+   color: rgba(0,0,0,1);
 }
 
 .info.expanded p {

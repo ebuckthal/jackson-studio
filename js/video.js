@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
 
 $('.video').append('<i class="fa fa-play-circle cover"></i><i class="fa fa-pause cover"></i>');
 $('.video').on('click', function() {
